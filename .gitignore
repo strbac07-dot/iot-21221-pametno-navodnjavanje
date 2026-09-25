@@ -1,0 +1,8 @@
+# Secrets i lokalni build artefakti — ne objavljivati
+.pio/
+.vscode/.browse.c_cpp.db*
+src/secrets.h
+
+# OS
+.DS_Store
+Thumbs.db

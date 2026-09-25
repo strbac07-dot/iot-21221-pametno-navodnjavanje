@@ -1,0 +1,7 @@
+# Konfiguracija za Wokwi simulaciju iz VS Code-a (Wokwi ekstenzija)
+# Ekstenzija pokrece firmware koji je PlatformIO izgradio.
+
+[wokwi]
+version = 1
+firmware = ".pio/build/esp32dev/firmware.bin"
+elf = ".pio/build/esp32dev/firmware.elf"

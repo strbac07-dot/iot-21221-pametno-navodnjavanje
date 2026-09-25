@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "author": "IoT_21221",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "soil", "top": 180, "left": -160,
+      "attrs": { "value": "2000" } },
+    { "type": "wokwi-dht22", "id": "dht", "top": -80, "left": 200,
+      "attrs": { "temperature": "24", "humidity": "55" } },
+    { "type": "wokwi-led", "id": "pump", "top": 100, "left": 220,
+      "attrs": { "color": "blue", "label": "PUMPA" } },
+    { "type": "wokwi-resistor", "id": "r1", "top": 150, "left": 250,
+      "attrs": { "value": "220" } },
+    { "type": "wokwi-led", "id": "alarm", "top": 40, "left": 220,
+      "attrs": { "color": "red", "label": "ALARM" } },
+    { "type": "wokwi-resistor", "id": "r2", "top": 10, "left": 250,
+      "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "esp:3V3",   "soil:VCC",  "red",   [ "v0" ] ],
+    [ "esp:GND.1", "soil:GND",  "black", [ "v0" ] ],
+    [ "soil:SIG",  "esp:34",    "green", [ "v0" ] ],
+
+    [ "esp:3V3",   "dht:VCC",   "red",   [ "v0" ] ],
+    [ "esp:GND.2", "dht:GND",   "black", [ "v0" ] ],
+    [ "dht:SDA",   "esp:15",    "green", [ "v0" ] ],
+
+    [ "esp:26",    "pump:A",    "blue",  [ "v0" ] ],
+    [ "pump:C",    "r1:1",      "black", [ "v0" ] ],
+    [ "r1:2",      "esp:GND.2", "black", [ "v0" ] ],
+
+    [ "esp:27",    "alarm:A",   "red",   [ "v0" ] ],
+    [ "alarm:C",   "r2:1",      "black", [ "v0" ] ],
+    [ "r2:2",      "esp:GND.2", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
